@@ -4,8 +4,13 @@
  */
 package test;
 
+import javax.swing.JOptionPane;
+
 public class Test {
 
+    int[][] mesa = new int[3][7];
+    String[] dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+    String[] mesas = {"Mesa 1", "Mesa 2", "Mesa 3"};
     public Nodo inicio;
     public Test(){this.inicio=null;}
     public void insertar(Cliente cliente) {
@@ -23,6 +28,31 @@ public class Test {
             //referencia al nodo nuevo
             aux.setEnlace(nuevo);
         }
+        switch(cliente.getMesa()) {
+            case "Mesa 1":
+                for(int i = 0; i < 7; i++) {
+                    if (cliente.getDia().equals(dias[i])) {
+                        mesa[0][i] ++;
+                    }
+                }
+                break;
+            case "Mesa 2":
+                for(int i = 0; i < 7; i++) {
+                    if (cliente.getDia().equals(dias[i])) {
+                        mesa[1][i] ++;
+                    }
+                }
+                break;
+            case "Mesa 3":
+                for(int i = 0; i < 7; i++) {
+                    if (cliente.getDia().equals(dias[i])) {
+                        mesa[2][i] ++;
+                    }
+                }
+                break;
+            default:
+                
+        }
     }
     //Total clientes en la semana
     public void contarClientes() {
@@ -33,7 +63,7 @@ public class Test {
             total++;
             aux = aux.getEnlace();
         }
-        System.out.println("Total: "+total);
+        JOptionPane.showMessageDialog(null,"Total: "+total);
     }
     //Clientes por mesa
     public void clientesMesa(String mesa){
@@ -46,7 +76,7 @@ public class Test {
             }
             aux = aux.getEnlace();
         }
-        System.out.println("Total en : "+mesa+": "+total);
+        JOptionPane.showMessageDialog(null,"Total en : "+mesa+": "+total);
 
     }
     public void mostrar() {
@@ -59,8 +89,48 @@ public class Test {
             aux=aux.getEnlace();
         }
     }
-    public static void main(String[] args) {
-        
+    
+    public void mesaMaxDia() {
+        //for 1 para ir pasando los dias
+        for(int i = 0; i < 7; i++) {
+            //variable que indica cual es la mesa mas usada en cada dia
+            int max = mesa[0][i];
+            String mesaMax = mesas[0];
+            //for 2 para ir pasando las mesas
+            for (int j = 0; j < 3; j++){
+                if (max < mesa[j][i]) {
+                max = mesa[j][i];
+                mesaMax = mesas[j];
+                }
+            }
+            JOptionPane.showMessageDialog(null, "mesa mas usada el " + dias[i] + ": " + mesaMax);
+        }
+    }
+    //lo mismo que en la funcion anterior, pero en vez de buscar la mesa mas usada en cada dia es la menos usada.
+    public void mesaMinDia() {
+        for(int i = 0; i < 7; i++) {
+            int min = mesa[0][i];
+            String mesaMin = mesas[0];
+            for (int j = 0; j < 3; j++){
+                if (min > mesa[j][i]) {
+                min = mesa[j][i];
+                mesaMin = mesas[j];
+                }
+            }
+            JOptionPane.showMessageDialog(null, "mesa menos usada el " + dias[i] + ": " + mesaMin);
+        }
     }
     
+    public void clientesDia() {
+        for(int i = 0; i < 7; i++) {
+            //variable para indicar el total de clientes por dia
+            int total = 0;
+            //for 2 para ir pasando las mesas
+            for (int j = 0; j < 3; j++){
+                total += mesa[j][i];
+                }
+            JOptionPane.showMessageDialog(null, "Total de clientes del dia " + dias[i] + ": " + total);
+            }
+
+    }
 }

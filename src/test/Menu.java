@@ -44,6 +44,9 @@ public class Menu extends javax.swing.JFrame {
         btnGet = new javax.swing.JButton();
         btnClienteMesa = new javax.swing.JButton();
         btnClienteTotal = new javax.swing.JButton();
+        btnMesaMaxDia = new javax.swing.JButton();
+        btnMesaMinDia = new javax.swing.JButton();
+        btnClienteDia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +104,27 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnMesaMaxDia.setText("Mesa mas usada por dia");
+        btnMesaMaxDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesaMaxDiaActionPerformed(evt);
+            }
+        });
+
+        btnMesaMinDia.setText("Mesa menos usada por dia");
+        btnMesaMinDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesaMinDiaActionPerformed(evt);
+            }
+        });
+
+        btnClienteDia.setText("Clientes por dia");
+        btnClienteDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteDiaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,34 +135,37 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(195, 195, 195)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(diaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(docField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(menuCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnClienteTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnGet)
-                                    .addComponent(btnClienteMesa)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58))
+                                    .addComponent(menuCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(diaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(88, 88, 88)
+                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGet)
+                            .addComponent(btnClienteMesa)
+                            .addComponent(btnClienteDia)
+                            .addComponent(btnClienteTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMesaMaxDia)
+                            .addComponent(btnMesaMinDia))))
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addGroup(layout.createSequentialGroup()
@@ -157,12 +184,21 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(menuCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(btnClienteTotal))
+                            .addComponent(btnClienteDia))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(diaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
-                .addComponent(btnCreate)
-                .addContainerGap(156, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(diaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnClienteTotal))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnCreate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnMesaMaxDia)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMesaMinDia)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         pack();
@@ -205,6 +241,18 @@ public class Menu extends javax.swing.JFrame {
         list.contarClientes();
     }//GEN-LAST:event_btnClienteTotalActionPerformed
 
+    private void btnMesaMaxDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesaMaxDiaActionPerformed
+        list.mesaMaxDia();
+    }//GEN-LAST:event_btnMesaMaxDiaActionPerformed
+
+    private void btnMesaMinDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesaMinDiaActionPerformed
+        list.mesaMinDia();
+    }//GEN-LAST:event_btnMesaMinDiaActionPerformed
+
+    private void btnClienteDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnClienteDiaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,10 +279,13 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClienteDia;
     private javax.swing.JButton btnClienteMesa;
     private javax.swing.JButton btnClienteTotal;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnGet;
+    private javax.swing.JButton btnMesaMaxDia;
+    private javax.swing.JButton btnMesaMinDia;
     private javax.swing.JComboBox<String> diaCombo;
     private javax.swing.JTextField docField;
     private javax.swing.JLabel jLabel1;
