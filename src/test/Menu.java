@@ -4,6 +4,7 @@
  */
 package test;
 
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,10 +50,11 @@ public class Menu extends javax.swing.JFrame {
         btnClienteDia = new javax.swing.JButton();
         DiaMasCliente = new javax.swing.JButton();
         ClienteFrecuente = new javax.swing.JButton();
+        nombreText = new javax.swing.JLabel();
+        docText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        menuCombo.setBackground(new java.awt.Color(255, 255, 255));
         menuCombo.setForeground(new java.awt.Color(102, 102, 102));
         menuCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mesa 1", "Mesa 2", "Mesa 3", " " }));
         menuCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +72,6 @@ public class Menu extends javax.swing.JFrame {
 
         docField.setBackground(new java.awt.Color(204, 204, 204));
 
-        diaCombo.setBackground(new java.awt.Color(255, 255, 255));
         diaCombo.setForeground(new java.awt.Color(102, 102, 102));
         diaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" }));
         diaCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +180,9 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,14 +191,14 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(docField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(menuCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(diaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(docText, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(docField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                .addComponent(menuCombo, 0, 119, Short.MAX_VALUE)
+                                .addComponent(diaCombo, 0, 119, Short.MAX_VALUE)
+                                .addComponent(nombreText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnMesaMinDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -220,12 +224,16 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGet)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(docField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(btnClienteMesa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(docText, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menuCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
@@ -248,7 +256,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(DiaMasCliente)
                 .addGap(18, 18, 18)
                 .addComponent(ClienteFrecuente)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -263,15 +271,36 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_diaComboActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        // TODO add your handling code here:
-        System.out.println(nombreField.getText().toString());
-        System.out.println(docField.getText().toString());
-        System.out.println(menuCombo.getSelectedItem().toString());
-        System.out.println(diaCombo.getSelectedItem().toString());
-        Cliente nuevo = new Cliente(docField.getText().toString(), menuCombo.getSelectedItem().toString(), diaCombo.getSelectedItem().toString());
-        list.insertar(nuevo);
+        try {
+            if(!nombreField.getText().equals("") && !docField.getText().equals("")) {
+            
+            System.out.println(nombreField.getText());
+            System.out.println(docField.getText());
+            System.out.println(menuCombo.getSelectedItem().toString());
+            System.out.println(diaCombo.getSelectedItem().toString());
+            Cliente nuevo = new Cliente(Integer.parseInt(docField.getText()), menuCombo.getSelectedItem().toString(), diaCombo.getSelectedItem().toString());
+            list.insertar(nuevo);
 
-        JOptionPane.showMessageDialog(this, "Cliente registrado con éxito");
+            JOptionPane.showMessageDialog(this, "Cliente registrado con éxito");
+        }else {
+            if(nombreField.getText().equals("")){
+                nombreText.setText("Campo requerido");
+            }else{
+                nombreText.setText("");
+            }
+            
+            if(docField.getText().equals("")){
+                docText.setText("campo requerido");
+            }else{
+                docText.setText("");
+            }
+        }
+        }catch(HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+        
+        
+         
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnGetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetActionPerformed
@@ -348,6 +377,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnMesaMinDia;
     private javax.swing.JComboBox<String> diaCombo;
     private javax.swing.JTextField docField;
+    private javax.swing.JLabel docText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -355,5 +385,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox<String> menuCombo;
     private javax.swing.JTextField nombreField;
+    private javax.swing.JLabel nombreText;
     // End of variables declaration//GEN-END:variables
 }

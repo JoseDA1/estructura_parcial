@@ -12,12 +12,12 @@ import java.time.LocalTime;
  */
 public class Cliente {
     
-    private String documento;
+    private int documento;
     private String mesa;
     private String dia;
     private LocalTime fecha;
     
-    public Cliente(String documento, String mesa, String dia) {
+    public Cliente(int documento, String mesa, String dia) {
         this.documento = documento;
         this.mesa = mesa;
         this.dia = dia;
@@ -28,7 +28,7 @@ public class Cliente {
     /**
      * @return the documento
      */
-    public String getDocumento() {
+    public int getDocumento() {
         return documento;
     }
 

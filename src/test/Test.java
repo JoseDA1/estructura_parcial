@@ -4,6 +4,7 @@
  */
 package test;
 
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 public class Test {
@@ -14,7 +15,8 @@ public class Test {
     public Nodo inicio;
     public Test(){this.inicio=null;}
     public void insertar(Cliente cliente) {
-        //lista simple
+        try{
+            //lista simple
         Nodo nuevo = new Nodo(cliente);
 
         if (inicio == null) {
@@ -29,34 +31,39 @@ public class Test {
             aux.setEnlace(nuevo);
         }
         switch(cliente.getMesa()) {
-            case "Mesa 1":
+            case "Mesa 1" -> {
                 for(int i = 0; i < 6; i++) {
                     if (cliente.getDia().equals(dias[i])) {
                         mesa[0][i] ++;
                     }
                 }
-                break;
-            case "Mesa 2":
+            }
+            case "Mesa 2" -> {
                 for(int i = 0; i < 6; i++) {
                     if (cliente.getDia().equals(dias[i])) {
                         mesa[1][i] ++;
                     }
                 }
-                break;
-            case "Mesa 3":
+            }
+            case "Mesa 3" -> {
                 for(int i = 0; i < 6; i++) {
                     if (cliente.getDia().equals(dias[i])) {
                         mesa[2][i] ++;
                     }
                 }
-                break;
-            default:
+            }
+            default -> {
+            }
                 
+        }
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }
     //Total clientes en la semana
     public void contarClientes() {
-        int total = 0;
+        try{
+            int total = 0;
         Nodo aux = inicio;
         while (aux != null) {
             //suma 1 a 1 los clientes
@@ -64,10 +71,14 @@ public class Test {
             aux = aux.getEnlace();
         }
         JOptionPane.showMessageDialog(null,"Total: "+total);
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
     //Clientes por mesa
     public void clientesMesa(String mesa){
-        int total=0;
+        try{
+            int total=0;
         Nodo aux = inicio;
         while(aux!=null){
             //Busca el parecido a el valor de las mesas
@@ -77,10 +88,13 @@ public class Test {
             aux = aux.getEnlace();
         }
         JOptionPane.showMessageDialog(null,"Total en "+mesa+": "+total);
-
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
     public void mostrar() {
-        //De prueba nada más
+        try{
+            //De prueba nada más
         Nodo aux = inicio;
         while (aux != null) {
             JOptionPane.showMessageDialog(null,"Doc: " + aux.getCliente().getDocumento() +
@@ -88,10 +102,14 @@ public class Test {
                                " | Día: " + aux.getCliente().getDia());
             aux=aux.getEnlace();
         }
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
     
     public void mesaMaxDia() {
-        //for 1 para ir pasando los dias
+        try{
+            //for 1 para ir pasando los dias
         for(int i = 0; i < 7; i++) {
             //variable que indica cual es la mesa mas usada en cada dia
             int max = mesa[0][i];
@@ -105,10 +123,14 @@ public class Test {
             }
             JOptionPane.showMessageDialog(null, "Mesa mas usada el " + dias[i] + ": " + mesaMax);
         }
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }  
     }
     //lo mismo que en la funcion anterior, pero en vez de buscar la mesa mas usada en cada dia es la menos usada.
     public void mesaMinDia() {
-        for(int i = 0; i < 7; i++) {
+        try{
+            for(int i = 0; i < 6; i++) {
             int min = mesa[0][i];
             String mesaMin = mesas[0];
             for (int j = 0; j < 3; j++){
@@ -119,10 +141,14 @@ public class Test {
             }
             JOptionPane.showMessageDialog(null, "Mesa menos usada el " + dias[i] + ": " + mesaMin);
         }
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
     
     public void clientesDia() {
-        for(int i = 0; i < 7; i++) {
+        try{
+            for(int i = 0; i < 7; i++) {
             //variable para indicar el total de clientes por dia
             int total = 0;
             //for 2 para ir pasando las mesas
@@ -131,9 +157,13 @@ public class Test {
                 }
             JOptionPane.showMessageDialog(null, "Total de clientes del dia " + dias[i] + ": " + total);
             }
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
-        public void diaConMasClientes(){
-        int maxClientes = -1;
+    public void diaConMasClientes(){
+            try{
+            int maxClientes = -1;
         String diaMax = "";
         
         for (int i = 0; i < dias.length; i++) {
@@ -152,9 +182,13 @@ public class Test {
             }else{
                 JOptionPane.showMessageDialog(null, "No hay datos de clientes registrados.");
             } 
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
         
-        public void clientesRecurrentes(){
+    public void clientesRecurrentes(){
+            try{
             if (inicio ==null) {
                 JOptionPane.showMessageDialog(null, "No hay clientes registrados.");
                 return;
@@ -165,17 +199,17 @@ public class Test {
             
             while (aux1 != null){
                 // si el aux es diferente de null, se recolecta la informacion del cliente
-                String documentoActual = aux1.getCliente().getDocumento();
+                int documentoActual = aux1.getCliente().getDocumento();
                 int contador = 0;
                 Nodo aux2 = inicio;
                 
                 while(aux2 != null){
-                    if (aux2.getCliente().getDocumento().equals(documentoActual)){
+                    if (aux2.getCliente().getDocumento() == documentoActual){
                         contador++;
                     }
                     aux2 = aux2.getEnlace();
                 }
-                if (contador > 1 && !clientesRepetidos.contains(documentoActual)){
+                if (contador > 1 && !clientesRepetidos.contains(String.valueOf(documentoActual))){
                     clientesRepetidos += "El cliente con documento " + documentoActual + " asistio " + contador + " veces.\n";
                 }
                 
@@ -185,8 +219,10 @@ public class Test {
             if (clientesRepetidos.isEmpty()){
                 JOptionPane.showMessageDialog(null, "No se encotraron clientes que hayan asistido mas de una vez");
             }else {
-                JOptionPane.showMessageDialog(null, "Clientes recurrentes:\n " + clientesRepetidos);
+                JOptionPane.showMessageDialog(null, "Clientes recurrentes: " + clientesRepetidos);
             }
-        }
-
+        }catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }  
     }
+}
