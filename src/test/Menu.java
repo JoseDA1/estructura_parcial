@@ -56,7 +56,7 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuCombo.setForeground(new java.awt.Color(102, 102, 102));
-        menuCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mesa 1", "Mesa 2", "Mesa 3", " " }));
+        menuCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mesa 1", "Mesa 2", "Mesa 3" }));
         menuCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuComboActionPerformed(evt);
@@ -68,7 +68,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CAFETERIA LA ESQUINA");
 
-        nombreField.setBackground(new java.awt.Color(204, 204, 204));
+        nombreField.setBackground(new java.awt.Color(255, 255, 255));
+        nombreField.setCaretColor(new java.awt.Color(255, 255, 255));
 
         docField.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -158,7 +159,7 @@ public class Menu extends javax.swing.JFrame {
 
         DiaMasCliente.setBackground(new java.awt.Color(204, 204, 204));
         DiaMasCliente.setForeground(new java.awt.Color(102, 102, 102));
-        DiaMasCliente.setText("Dia Mas Clientes");
+        DiaMasCliente.setText("Dia con mas Clientes");
         DiaMasCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DiaMasClienteActionPerformed(evt);
