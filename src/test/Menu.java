@@ -89,7 +89,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 102, 102));
         jLabel5.setText("Dia");
 
-        btnCreate.setForeground(new java.awt.Color(102, 153, 255));
+        btnCreate.setForeground(new java.awt.Color(0, 0, 255));
         btnCreate.setText("Ingresar");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
