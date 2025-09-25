@@ -56,10 +56,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnGet" min="-2" max="-2" attributes="0"/>
                           <Component id="btnClienteMesa" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnClienteDia" min="-2" max="-2" attributes="0"/>
                           <Component id="btnClienteTotal" min="-2" pref="124" max="-2" attributes="0"/>
                           <Component id="btnMesaMaxDia" min="-2" max="-2" attributes="0"/>
                           <Component id="btnMesaMinDia" min="-2" max="-2" attributes="0"/>
+                          <Component id="DiaSemanaMasCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="ClientesFrecuentes" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -91,28 +92,30 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="menuCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnClienteDia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnClienteTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="diaCombo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnClienteTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnMesaMaxDia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnMesaMaxDia" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnMesaMinDia" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnMesaMinDia" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="120" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="DiaSemanaMasCliente" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="ClientesFrecuentes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -236,12 +239,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMesaMinDiaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnClienteDia">
+    <Component class="javax.swing.JButton" name="DiaSemanaMasCliente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Clientes por dia"/>
+        <Property name="text" type="java.lang.String" value="Dia Semana Mas Cliente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClienteDiaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaSemanaMasClienteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="ClientesFrecuentes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Clientes Frecuentes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClientesFrecuentesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -46,7 +46,8 @@ public class Menu extends javax.swing.JFrame {
         btnClienteTotal = new javax.swing.JButton();
         btnMesaMaxDia = new javax.swing.JButton();
         btnMesaMinDia = new javax.swing.JButton();
-        btnClienteDia = new javax.swing.JButton();
+        DiaSemanaMasCliente = new javax.swing.JButton();
+        ClientesFrecuentes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,10 +119,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnClienteDia.setText("Clientes por dia");
-        btnClienteDia.addActionListener(new java.awt.event.ActionListener() {
+        DiaSemanaMasCliente.setText("Dia Semana Mas Cliente");
+        DiaSemanaMasCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteDiaActionPerformed(evt);
+                DiaSemanaMasClienteActionPerformed(evt);
+            }
+        });
+
+        ClientesFrecuentes.setText("Clientes Frecuentes");
+        ClientesFrecuentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClientesFrecuentesActionPerformed(evt);
             }
         });
 
@@ -156,10 +164,11 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnGet)
                             .addComponent(btnClienteMesa)
-                            .addComponent(btnClienteDia)
                             .addComponent(btnClienteTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnMesaMaxDia)
-                            .addComponent(btnMesaMinDia))))
+                            .addComponent(btnMesaMinDia)
+                            .addComponent(DiaSemanaMasCliente)
+                            .addComponent(ClientesFrecuentes))))
                 .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
@@ -184,21 +193,23 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(menuCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(btnClienteDia))
+                            .addComponent(btnClienteTotal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(diaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnClienteTotal))))
+                            .addComponent(btnMesaMaxDia))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
+                        .addGap(16, 16, 16)
                         .addComponent(btnCreate))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnMesaMaxDia)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnMesaMinDia)
-                .addContainerGap(120, Short.MAX_VALUE))
+                        .addComponent(btnMesaMinDia)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DiaSemanaMasCliente)
+                .addGap(28, 28, 28)
+                .addComponent(ClientesFrecuentes)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -249,9 +260,13 @@ public class Menu extends javax.swing.JFrame {
         list.mesaMinDia();
     }//GEN-LAST:event_btnMesaMinDiaActionPerformed
 
-    private void btnClienteDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteDiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnClienteDiaActionPerformed
+    private void DiaSemanaMasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaSemanaMasClienteActionPerformed
+        list.diaConMasClientes();
+    }//GEN-LAST:event_DiaSemanaMasClienteActionPerformed
+
+    private void ClientesFrecuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientesFrecuentesActionPerformed
+        list.clientesRecurrentes();
+    }//GEN-LAST:event_ClientesFrecuentesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,7 +294,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClienteDia;
+    private javax.swing.JButton ClientesFrecuentes;
+    private javax.swing.JButton DiaSemanaMasCliente;
     private javax.swing.JButton btnClienteMesa;
     private javax.swing.JButton btnClienteTotal;
     private javax.swing.JButton btnCreate;
