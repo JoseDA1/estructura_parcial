@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class Test {
 
     int[][] mesa = new int[3][7];
-    String[] dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+    String[] dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
     String[] mesas = {"Mesa 1", "Mesa 2", "Mesa 3"};
     public Nodo inicio;
     public Test(){this.inicio=null;}
@@ -30,21 +30,21 @@ public class Test {
         }
         switch(cliente.getMesa()) {
             case "Mesa 1":
-                for(int i = 0; i < 7; i++) {
+                for(int i = 0; i < 6; i++) {
                     if (cliente.getDia().equals(dias[i])) {
                         mesa[0][i] ++;
                     }
                 }
                 break;
             case "Mesa 2":
-                for(int i = 0; i < 7; i++) {
+                for(int i = 0; i < 6; i++) {
                     if (cliente.getDia().equals(dias[i])) {
                         mesa[1][i] ++;
                     }
                 }
                 break;
             case "Mesa 3":
-                for(int i = 0; i < 7; i++) {
+                for(int i = 0; i < 6; i++) {
                     if (cliente.getDia().equals(dias[i])) {
                         mesa[2][i] ++;
                     }
@@ -76,14 +76,14 @@ public class Test {
             }
             aux = aux.getEnlace();
         }
-        JOptionPane.showMessageDialog(null,"Total en : "+mesa+": "+total);
+        JOptionPane.showMessageDialog(null,"Total en "+mesa+": "+total);
 
     }
     public void mostrar() {
         //De prueba nada más
         Nodo aux = inicio;
         while (aux != null) {
-            System.out.println("Doc: " + aux.getCliente().getDocumento() +
+            JOptionPane.showMessageDialog(null,"Doc: " + aux.getCliente().getDocumento() +
                                " | Mesa: " + aux.getCliente().getMesa()+
                                " | Día: " + aux.getCliente().getDia());
             aux=aux.getEnlace();
@@ -103,7 +103,7 @@ public class Test {
                 mesaMax = mesas[j];
                 }
             }
-            JOptionPane.showMessageDialog(null, "mesa mas usada el " + dias[i] + ": " + mesaMax);
+            JOptionPane.showMessageDialog(null, "Mesa mas usada el " + dias[i] + ": " + mesaMax);
         }
     }
     //lo mismo que en la funcion anterior, pero en vez de buscar la mesa mas usada en cada dia es la menos usada.
@@ -117,7 +117,7 @@ public class Test {
                 mesaMin = mesas[j];
                 }
             }
-            JOptionPane.showMessageDialog(null, "mesa menos usada el " + dias[i] + ": " + mesaMin);
+            JOptionPane.showMessageDialog(null, "Mesa menos usada el " + dias[i] + ": " + mesaMin);
         }
     }
     
@@ -148,7 +148,7 @@ public class Test {
             } 
         }
          if (maxClientes > 0) {
-                JOptionPane.showMessageDialog(null, "EL dia de la semana con mas clientes es: " + diaMax + " con un total de " + maxClientes + "clientes.");
+                JOptionPane.showMessageDialog(null, "El dia de la semana con mas clientes es el " + diaMax + " con un total de " + maxClientes + " clientes.");
             }else{
                 JOptionPane.showMessageDialog(null, "No hay datos de clientes registrados.");
             } 
@@ -164,6 +164,7 @@ public class Test {
             String clientesRepetidos = "";
             
             while (aux1 != null){
+                // si el aux es diferente de null, se recolecta la informacion del cliente
                 String documentoActual = aux1.getCliente().getDocumento();
                 int contador = 0;
                 Nodo aux2 = inicio;
@@ -175,7 +176,7 @@ public class Test {
                     aux2 = aux2.getEnlace();
                 }
                 if (contador > 1 && !clientesRepetidos.contains(documentoActual)){
-                    clientesRepetidos += "El cliente con documento " + documentoActual + "asistio" + contador + "veces.\n";
+                    clientesRepetidos += "El cliente con documento " + documentoActual + " asistio " + contador + " veces.\n";
                 }
                 
                 aux1 = aux1.getEnlace();
@@ -184,7 +185,7 @@ public class Test {
             if (clientesRepetidos.isEmpty()){
                 JOptionPane.showMessageDialog(null, "No se encotraron clientes que hayan asistido mas de una vez");
             }else {
-                JOptionPane.showMessageDialog(null, "Clientes recurrentes:\n" + clientesRepetidos);
+                JOptionPane.showMessageDialog(null, "Clientes recurrentes:\n " + clientesRepetidos);
             }
         }
 
