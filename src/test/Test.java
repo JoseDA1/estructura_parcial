@@ -131,6 +131,61 @@ public class Test {
                 }
             JOptionPane.showMessageDialog(null, "Total de clientes del dia " + dias[i] + ": " + total);
             }
+    }
+        public void diaConMasClientes(){
+        int maxClientes = -1;
+        String diaMax = "";
+        
+        for (int i = 0; i < dias.length; i++) {
+            int clientesDelDia = 0;
+            for (int j = 0; j < mesas.length; j++) {
+                clientesDelDia += mesa[j][i];
+            }
+            
+            if (clientesDelDia > maxClientes) {
+                maxClientes = clientesDelDia;
+                diaMax = dias[i];
+            } 
+        }
+         if (maxClientes > 0) {
+                JOptionPane.showMessageDialog(null, "EL dia de la semana con mas clientes es: " + diaMax + " con un total de " + maxClientes + "clientes.");
+            }else{
+                JOptionPane.showMessageDialog(null, "No hay datos de clientes registrados.");
+            } 
+    }
+        
+        public void clientesRecurrentes(){
+            if (inicio ==null) {
+                JOptionPane.showMessageDialog(null, "No hay clientes registrados.");
+                return;
+            }
+            
+            Nodo aux1 = inicio;
+            String clientesRepetidos = "";
+            
+            while (aux1 != null){
+                String documentoActual = aux1.getCliente().getDocumento();
+                int contador = 0;
+                Nodo aux2 = inicio;
+                
+                while(aux2 != null){
+                    if (aux2.getCliente().getDocumento().equals(documentoActual)){
+                        contador++;
+                    }
+                    aux2 = aux2.getEnlace();
+                }
+                if (contador > 1 && !clientesRepetidos.contains(documentoActual)){
+                    clientesRepetidos += "El cliente con documento " + documentoActual + "asistio" + contador + "veces.\n";
+                }
+                
+                aux1 = aux1.getEnlace();
+            }
+            
+            if (clientesRepetidos.isEmpty()){
+                JOptionPane.showMessageDialog(null, "No se encotraron clientes que hayan asistido mas de una vez");
+            }else {
+                JOptionPane.showMessageDialog(null, "Clientes recurrentes:\n" + clientesRepetidos);
+            }
+        }
 
     }
-}

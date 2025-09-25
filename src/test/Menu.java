@@ -47,9 +47,12 @@ public class Menu extends javax.swing.JFrame {
         btnMesaMaxDia = new javax.swing.JButton();
         btnMesaMinDia = new javax.swing.JButton();
         btnClienteDia = new javax.swing.JButton();
+        DiaMasCliente = new javax.swing.JButton();
+        ClienteFrecuente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        menuCombo.setForeground(new java.awt.Color(0, 153, 204));
         menuCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mesa 1", "Mesa 2", "Mesa 3", " " }));
         menuCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,9 +61,15 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CAFETERIA LA ESQUINA");
 
+        nombreField.setBackground(new java.awt.Color(0, 153, 204));
+
+        docField.setBackground(new java.awt.Color(0, 153, 255));
+
+        diaCombo.setForeground(new java.awt.Color(0, 153, 255));
         diaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" }));
         diaCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,14 +77,19 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setText("Nombre del cliente:");
 
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("Documento del cliente:");
 
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setText("Mesa");
 
+        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
         jLabel5.setText("Dia");
 
+        btnCreate.setForeground(new java.awt.Color(102, 153, 255));
         btnCreate.setText("Ingresar");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +97,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnGet.setForeground(new java.awt.Color(0, 204, 204));
         btnGet.setText("Mostrar");
         btnGet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +105,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnClienteMesa.setForeground(new java.awt.Color(0, 204, 204));
         btnClienteMesa.setText("Clientes por Mesa");
         btnClienteMesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +113,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnClienteTotal.setForeground(new java.awt.Color(0, 204, 204));
         btnClienteTotal.setText("Total Clientes");
         btnClienteTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +121,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnMesaMaxDia.setForeground(new java.awt.Color(0, 204, 204));
         btnMesaMaxDia.setText("Mesa mas usada por dia");
         btnMesaMaxDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +129,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnMesaMinDia.setForeground(new java.awt.Color(51, 153, 255));
         btnMesaMinDia.setText("Mesa menos usada por dia");
         btnMesaMinDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,10 +137,27 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnClienteDia.setForeground(new java.awt.Color(0, 204, 204));
         btnClienteDia.setText("Clientes por dia");
         btnClienteDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClienteDiaActionPerformed(evt);
+            }
+        });
+
+        DiaMasCliente.setForeground(new java.awt.Color(0, 153, 255));
+        DiaMasCliente.setText("Dia Mas Clientes");
+        DiaMasCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiaMasClienteActionPerformed(evt);
+            }
+        });
+
+        ClienteFrecuente.setForeground(new java.awt.Color(0, 153, 255));
+        ClienteFrecuente.setText("Cliente Frecuente");
+        ClienteFrecuente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClienteFrecuenteActionPerformed(evt);
             }
         });
 
@@ -159,7 +195,9 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(btnClienteDia)
                             .addComponent(btnClienteTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnMesaMaxDia)
-                            .addComponent(btnMesaMinDia))))
+                            .addComponent(btnMesaMinDia)
+                            .addComponent(DiaMasCliente)
+                            .addComponent(ClienteFrecuente))))
                 .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
@@ -198,7 +236,11 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(btnMesaMaxDia)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMesaMinDia)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(DiaMasCliente)
+                .addGap(18, 18, 18)
+                .addComponent(ClienteFrecuente)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -250,8 +292,16 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMesaMinDiaActionPerformed
 
     private void btnClienteDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteDiaActionPerformed
-        // TODO add your handling code here:
+        list.clientesDia();
     }//GEN-LAST:event_btnClienteDiaActionPerformed
+
+    private void DiaMasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaMasClienteActionPerformed
+        list.diaConMasClientes();
+    }//GEN-LAST:event_DiaMasClienteActionPerformed
+
+    private void ClienteFrecuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteFrecuenteActionPerformed
+        list.clientesRecurrentes();
+    }//GEN-LAST:event_ClienteFrecuenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +329,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ClienteFrecuente;
+    private javax.swing.JButton DiaMasCliente;
     private javax.swing.JButton btnClienteDia;
     private javax.swing.JButton btnClienteMesa;
     private javax.swing.JButton btnClienteTotal;
