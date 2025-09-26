@@ -163,7 +163,7 @@ public class Test {
     }
     public void diaConMasClientes(){
             try{
-            int maxClientes = -1;
+            int maxClientes = 0;
         String diaMax = "";
         
         for (int i = 0; i < dias.length; i++) {
